@@ -54,9 +54,9 @@ readinessProbe:
 postgresql:
   enabled: true
 resources:
-#  limits:
-#    cpu: 100m
-#    memory: 128Mi
+  #  limits:
+  #    cpu: 100m
+  #    memory: 128Mi
   requests:
 #    cpu: 100m
 #    memory: 128Mi
@@ -68,3 +68,6 @@ podDisruptionBudget:
   enabled: false
   # minAvailable: 1
   maxUnavailable: 1
+
+route:
+  enabled: true
