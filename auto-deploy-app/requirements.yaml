@@ -3,3 +3,7 @@ dependencies:
     version: "0.7.1"
     repository: "https://kubernetes-charts.storage.googleapis.com/"
     condition: postgresql.enabled
+  - name: mssql
+    version: "0.0.1"
+    repository: "https://raw.githubusercontent.com/hardyscc/charts/master/"
+    condition: mssql.enabled
