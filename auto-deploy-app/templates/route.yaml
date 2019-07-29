@@ -12,9 +12,11 @@ metadata:
     heritage: {{ .Release.Service }}
 spec:
   host: {{ template "hostname" .Values.service.url }}
+  {{- if .Values.route.tls.enabled }}
   tls:
     insecureEdgeTerminationPolicy: Redirect
-    termination: edge
+    termination: edge  
+  {{- end }}
   to:
     kind: Service
     name: {{ template "fullname" . }}
