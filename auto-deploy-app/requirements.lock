@@ -2,5 +2,8 @@ dependencies:
 - name: postgresql
   repository: https://kubernetes-charts.storage.googleapis.com/
   version: 0.7.1
-digest: sha256:358ce85fe4d3461ea6bb96713470a80de9c1324214a2e6f97d800298c02530e2
-generated: 2017-08-28T15:22:30.690341342-05:00
+- name: mssql
+  repository: https://raw.githubusercontent.com/hardyscc/charts/master/
+  version: 0.0.1
+digest: sha256:8d427fddb294bd29df6a22be3f83fa993a916197189f4ab67f428212f4d45bb8
+generated: "2019-07-29T15:45:33.149935+08:00"

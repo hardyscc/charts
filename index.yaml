@@ -1,27 +1,27 @@
 apiVersion: v1
 entries:
   auto-deploy-app:
-    - apiVersion: v1
-      created: "2019-07-29T15:43:35.130915+08:00"
-      description: GitLab's Auto-deploy Helm Chart
-      digest: 906265f512f757f3af94708ae91845c2ef6e38917a9933703f2eb20b9be175b3
-      icon: https://gitlab.com/gitlab-com/gitlab-artwork/raw/master/logo/logo-square.png
-      name: auto-deploy-app
-      urls:
-        - auto-deploy-app-0.2.9.tgz
-      version: 0.2.9
+  - apiVersion: v1
+    created: "2019-07-29T15:46:00.798315+08:00"
+    description: GitLab's Auto-deploy Helm Chart
+    digest: a26fd97042ed26f3c23dbb3c44199758539387e62129bcf7b730a22effd9c0da
+    icon: https://gitlab.com/gitlab-com/gitlab-artwork/raw/master/logo/logo-square.png
+    name: auto-deploy-app
+    urls:
+    - auto-deploy-app-0.2.9.tgz
+    version: 0.2.9
   mssql:
-    - apiVersion: v1
-      appVersion: 14.0.3045.24
-      created: "2019-07-29T15:43:35.131464+08:00"
-      description: SQL Server Helm Chart (stable/mssql-linux 0.7.0/14.0.3023.8)
-      digest: c9ee355500be00fe5acd72e5818b264ebb2a7bad0e0ef1237eea0dbd65f7c6eb
-      home: https://hub.docker.com/r/mcmoe/mssqldocker
-      icon: https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1I4Dx
-      name: mssql
-      sources:
-        - https://hub.docker.com/r/mcmoe/mssqldocker
-      urls:
-        - mssql-0.0.1.tgz
-      version: 0.0.1
-generated: "2019-07-29T15:43:35.129781+08:00"
+  - apiVersion: v1
+    appVersion: 14.0.3045.24
+    created: "2019-07-29T15:46:00.799511+08:00"
+    description: SQL Server Helm Chart (stable/mssql-linux 0.7.0/14.0.3023.8)
+    digest: c9ee355500be00fe5acd72e5818b264ebb2a7bad0e0ef1237eea0dbd65f7c6eb
+    home: https://hub.docker.com/r/mcmoe/mssqldocker
+    icon: https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1I4Dx
+    name: mssql
+    sources:
+    - https://hub.docker.com/r/mcmoe/mssqldocker
+    urls:
+    - mssql-0.0.1.tgz
+    version: 0.0.1
+generated: "2019-07-29T15:46:00.79655+08:00"
