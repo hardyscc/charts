@@ -53,7 +53,7 @@ readinessProbe:
   timeoutSeconds: 3
   scheme: "HTTP"
 postgresql:
-  enabled: true
+  enabled: false
 resources:
   #  limits:
   #    cpu: 100m
@@ -75,16 +75,24 @@ route:
   tls:
     enabled: true
 mssql:
-  enabled: true
+  enabled: false
 
 frontend:
   enabled: false
+  replicaCount: 1
   application:
+    track: stable
     tier: frontend
+    secretName:
+    secretChecksum:
     serviceAccount:
   service:
+    annotations: {}
     name: frontend
     type: ClusterIP
     url: http://my.host.com/
-    externalPort: 5000
-    internalPort: 5000
+    additionalHosts:
+    commonName:
+    externalPort: 4000
+    internalPort: 4000
+  resources:
