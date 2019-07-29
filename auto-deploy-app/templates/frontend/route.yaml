@@ -1,0 +1,25 @@
+
+{{- if .Values.frontend.service.enabled -}}
+{{- if .Values.route.enabled -}}
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: {{ template "fullname-frontend" . }}
+  labels:
+    app: {{ template "appname-frontend" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version| replace "+" "_" }}"
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  host: {{ template "hostname" .Values.frontend.service.url }}
+  {{- if .Values.route.tls.enabled }}
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge  
+  {{- end }}
+  to:
+    kind: Service
+    name: {{ template "fullname-frontend" . }}
+    weight: 100
+{{- end -}}
+{{- end -}}

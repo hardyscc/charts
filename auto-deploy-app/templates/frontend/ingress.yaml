@@ -1,0 +1,53 @@
+{{- if .Values.frontend.service.enabled -}}
+{{- if not .Values.route.enabled -}}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ template "fullname-frontend" . }}
+  labels:
+    app: {{ template "appname-frontend" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version| replace "+" "_" }}"
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+{{- if .Values.ingress.annotations }}
+  annotations:
+{{ toYaml .Values.ingress.annotations | indent 4 }}
+{{- end }}
+spec:
+{{- if .Values.ingress.tls.enabled }}
+  tls:
+  - hosts:
+{{- if .Values.frontend.service.commonName }}
+    - {{ template "hostname" .Values.frontend.service.commonName }}
+{{- end }}
+    - {{ template "hostname" .Values.frontend.service.url }}
+{{- if .Values.frontend.service.additionalHosts }}
+{{- range $host := .Values.frontend.service.additionalHosts }}
+    - {{ $host }}
+{{- end -}}
+{{- end }}
+    secretName: {{ .Values.ingress.tls.secretName | default (printf "%s-tls" (include "fullname" .)) }}
+{{- end }}
+  rules:
+  - host: {{ template "hostname" .Values.frontend.service.url }}
+    http:
+      &httpRule
+      paths:
+      - path: /
+        backend:
+          serviceName: {{ template "fullname-frontend" . }}
+          servicePort: {{ .Values.frontend.service.externalPort }}
+{{- if .Values.frontend.service.commonName }}
+  - host: {{ template "hostname" .Values.frontend.service.commonName }}
+    http:
+      <<: *httpRule
+{{- end -}}
+{{- if .Values.frontend.service.additionalHosts }}
+{{- range $host := .Values.frontend.service.additionalHosts }}
+  - host: {{ $host }}
+    http:
+      <<: *httpRule
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}

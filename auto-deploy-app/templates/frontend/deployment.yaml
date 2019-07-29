@@ -3,9 +3,12 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: {{ template "trackableappname" . }}
+  name: {{ template "trackableappname-frontend" . }}
+  annotations:
+    {{ if .Values.gitlab.app }}app.gitlab.com/app: {{ .Values.gitlab.app | quote }}{{ end }}
+    {{ if .Values.gitlab.env }}app.gitlab.com/env: {{ .Values.gitlab.env | quote }}{{ end }}
   labels:
-    app: {{ template "appname" . }}
+    app: {{ template "appname-frontend" . }}
     track: "{{ .Values.frontend.application.track }}"
     tier: "{{ .Values.frontend.application.tier }}"
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
@@ -15,8 +18,15 @@ spec:
   replicas: {{ .Values.frontend.replicaCount }}
   template:
     metadata:
+      annotations:
+        checksum/application-secrets: "{{ .Values.frontend.application.secretChecksum }}"
+        {{ if .Values.gitlab.app }}app.gitlab.com/app: {{ .Values.gitlab.app | quote }}{{ end }}
+        {{ if .Values.gitlab.env }}app.gitlab.com/env: {{ .Values.gitlab.env | quote }}{{ end }}
+{{- if .Values.podAnnotations }}
+{{ toYaml .Values.podAnnotations | indent 8 }}
+{{- end }}
       labels:
-        app: {{ template "appname" . }}
+        app: {{ template "appname-frontend" . }}
         track: "{{ .Values.frontend.application.track }}"
         tier: "{{ .Values.frontend.application.tier }}"
         release: {{ .Release.Name }}
@@ -35,6 +45,9 @@ spec:
         - secretRef:
             name: {{ .Values.frontend.application.secretName }}
         {{- end }}
+        env:
+        - name: SERVER_URL
+          value: {{ .Values.service.url | quote }}
         ports:
         - name: "{{ .Values.frontend.service.name }}"
           containerPort: {{ .Values.frontend.service.internalPort }}
