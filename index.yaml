@@ -2,12 +2,12 @@ apiVersion: v1
 entries:
   auto-deploy-app:
   - apiVersion: v1
-    created: "2019-07-29T15:19:57.951374+08:00"
+    created: "2019-07-29T15:33:34.727026+08:00"
     description: GitLab's Auto-deploy Helm Chart
-    digest: a507df00070ec8946ca3db0a192e18e8634571a10c25a59be4b0d305919e8dcc
+    digest: 906265f512f757f3af94708ae91845c2ef6e38917a9933703f2eb20b9be175b3
     icon: https://gitlab.com/gitlab-com/gitlab-artwork/raw/master/logo/logo-square.png
     name: auto-deploy-app
     urls:
-    - auto-deploy-app-0.2.9.1.tgz
-    version: 0.2.9.1
-generated: "2019-07-29T15:19:57.950203+08:00"
+    - auto-deploy-app-0.2.9.tgz
+    version: 0.2.9
+generated: "2019-07-29T15:33:34.725768+08:00"
