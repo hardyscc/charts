@@ -87,7 +87,7 @@ frontend:
     secretChecksum:
     serviceAccount:
   service:
-    enabled: false
+    enabled: true
     annotations: {}
     name: frontend
     type: ClusterIP
