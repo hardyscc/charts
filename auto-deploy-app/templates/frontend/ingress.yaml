@@ -1,3 +1,4 @@
+{{- if .Values.frontend.enabled -}}
 {{- if .Values.frontend.service.enabled -}}
 {{- if not .Values.route.enabled -}}
 apiVersion: extensions/v1beta1
@@ -47,6 +48,7 @@ spec:
   - host: {{ $host }}
     http:
       <<: *httpRule
+{{- end -}}
 {{- end -}}
 {{- end -}}
 {{- end -}}
