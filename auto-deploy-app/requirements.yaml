@@ -1,8 +1,12 @@
 dependencies:
   - name: postgresql
-    version: "0.7.1"
+    version: "6.2.0"
     repository: "https://kubernetes-charts.storage.googleapis.com/"
     condition: postgresql.enabled
+  - name: redis
+    version: "9.0.1"
+    repository: "https://kubernetes-charts.storage.googleapis.com/"
+    condition: redis.enabled
   - name: mssql
     version: "0.0.1"
     repository: "https://raw.githubusercontent.com/hardyscc/charts/master/"

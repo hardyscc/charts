@@ -76,6 +76,8 @@ route:
     enabled: true
 mssql:
   enabled: false
+redis:
+  enabled: false
 
 frontend:
   enabled: false
