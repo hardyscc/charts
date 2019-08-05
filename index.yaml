@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   auto-deploy-app:
   - apiVersion: v1
-    created: "2019-08-05T11:10:08.860019+08:00"
+    created: "2019-08-05T15:28:30.387808+08:00"
     description: GitLab's Auto-deploy Helm Chart
     digest: 532af934d358a428a44aa5598d56fbd986fe8c92d350ec44ea556e1342f7e155
     icon: https://gitlab.com/gitlab-com/gitlab-artwork/raw/master/logo/logo-square.png
@@ -13,9 +13,9 @@ entries:
   mssql:
   - apiVersion: v1
     appVersion: 14.0.3045.24
-    created: "2019-08-05T11:10:08.860642+08:00"
+    created: "2019-08-05T15:28:30.388424+08:00"
     description: SQL Server Helm Chart (stable/mssql-linux 0.7.0/14.0.3023.8)
-    digest: c9ee355500be00fe5acd72e5818b264ebb2a7bad0e0ef1237eea0dbd65f7c6eb
+    digest: b20ddfee2b9bca7d0e186d9ed6f4025f6b8ed494f05e038a0b4e15334baed045
     home: https://hub.docker.com/r/mcmoe/mssqldocker
     icon: https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1I4Dx
     name: mssql
@@ -24,4 +24,4 @@ entries:
     urls:
     - mssql-0.0.1.tgz
     version: 0.0.1
-generated: "2019-08-05T11:10:08.855567+08:00"
+generated: "2019-08-05T15:28:30.383411+08:00"

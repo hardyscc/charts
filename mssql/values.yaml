@@ -12,6 +12,7 @@ hadr: 0
 # password: "User12345"
 # database: "dev"
 image:
+  registry: docker.io
   repository: mcmoe/mssqldocker
   tag: v2017.CU12.1
   pullPolicy: IfNotPresent
